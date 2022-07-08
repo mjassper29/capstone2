@@ -1,0 +1,124 @@
+@import url("https://fonts.googleapis.com/css2?family=Blaka&family=Chewy&family=Cinzel:wght@600&family=Fascinate&family=Quicksand&family=Ubuntu:ital,wght@1,300&display=swap");
+header {
+  margin: 10px;
+  padding: 10px;
+}
+
+body {
+  font-family: 'Chewy', cursive;
+  background-color: antiquewhite;
+}
+
+#clouds {
+  border: solid black 5px;
+  z-index: 2;
+}
+
+#play-button {
+  position: absolute;
+  top: 30%;
+  width: 20%;
+}
+
+#mode-alert {
+  position: absolute;
+  top: 80%;
+  visibility: hidden;
+}
+
+#easyMode {
+  position: absolute;
+  top: 90%;
+  visibility: hidden;
+}
+
+#mediumMode {
+  position: absolute;
+  top: 90%;
+  visibility: hidden;
+}
+
+#hardMode {
+  position: absolute;
+  top: 90%;
+  visibility: hidden;
+}
+
+.bird {
+  position: absolute;
+  width: 15%;
+  height: 30%;
+  visibility: hidden;
+}
+
+#bird1 {
+  top: 5%;
+  left: 10%;
+}
+
+#bird2 {
+  top: 55%;
+  left: 20%;
+}
+
+#bird3 {
+  top: 35%;
+  left: 40%;
+}
+
+#bird4 {
+  top: 60%;
+  left: 60%;
+}
+
+#bird5 {
+  top: 20%;
+  left: 70%;
+}
+
+[type=radio] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+[type=radio]:checked + img {
+  background-color: burlywood;
+  border-radius: 30px;
+}
+
+.col-1 {
+  font-size: 2.5rem;
+  color: red;
+  border: solid burlywood 3px;
+  border-radius: 30px;
+  text-align: center;
+  text-align: center;
+}
+
+.keyboardButtons {
+  font-size: 2.5rem;
+  color: red;
+  border: solid burlywood 3px;
+  border-radius: 30px;
+  text-align: center;
+  color: red;
+  background-color: transparent;
+  border: none;
+  outline: none;
+}
+
+#keyboardBorder {
+  border: solid 5px burlywood;
+  border-radius: 30px;
+}
+
+.btn {
+  color: red;
+  font-size: 2.5rem;
+  border: solid burlywood 3px;
+  border-radius: 30px;
+  text-align: center;
+}
+/*# sourceMappingURL=styles.css.map */

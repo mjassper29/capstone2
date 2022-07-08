@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="sass/styles.css">
+    <script src="jquery-3.6.0.min.js"></script>
+
+    <title>Save the Birds!</title>
+</head>
+<header>
+    <nav class="navbar navbar-light navbar-expand-lg justify-content-center">
+        <h1 class="navbar-brand">Save the Birds!!</h1> 
+        <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#myNav">
+            <span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="myNav">
+        <ul class="navbar-nav ms-auto">
+            <li class="navbar-item">
+                <a href="https://my-first-capstone-project.herokuapp.com/" target="_blank" class="nav-link">Who's the Creator?</a>
+            </li>
+            <li class="navbar-item px-2 ">
+                <button type="button" data-bs-toggle="modal" data-bs-target="#myBird">What's the story?</button>
+                <div class="modal fade" id="myBird">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <div class="modal-title">
+                                <h5 >The story of a Bird</h5>
+                                    <div class="modal-body">
+                                        <h6>
+                                        A bird was standing in a field chatting with a bull.</h6>
+
+                                        <h6>“I would love to get to the top of yonder tree,” sighed the bird, “but I ain't got the energy.”</h6>
+                                        
+                                        <h6>“Well, why don't you nibble on some of my droppings?” replied the bull. “They're packed with nutrients.”</h6>
+                                        
+                                        <h6>The bird pecked at some dung and found that it gave him enough strength to reach the first branch of the tree. The next day, after eating some more dung, he reached the second branch. And similarly for the third day.</h6>
+                                        
+                                        <h6>Finally, on the fourth day, he was proudly perched at the top of the tree.</h6>
+                                        
+                                        <h6>This was when a farmer saw him, dashed into the farmhouse, emerged with a shotgun, and shot the bird right out of the tree. </h6>
+                                        
+                                        <h6>Moral of the story: Bullshit might get you to the top, but it won't keep you there.
+                                        </h6>
+                                        <br>
+                                        <br>
+                                        <h6><em>it might not be related to the game but it is still a story</em></h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </li>
+            <li class="navbar-item px-2">
+                <button type="button" data-bs-toggle="modal" data-bs-target="#myModal"> How to play?</button>
+                <div class="modal fade" id="myModal">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <div class="modal-title">
+                                <h5 >How to Play</h5>
+                                    <div class="modal-body">
+                                <h6>1. Choose a <strong>difficulty.</strong>
+                                <h6>2. Guess the word or phrase by picking one letter at a time.</h6>
+                                <h6>3. Every correct letters will be displayed above
+                                and with every wrong guess a bird will fall from the sky!</h6>
+                                <h6>4. the game ends with either guessing the whole phrase or all the birds are dead</h6>
+                                <h6> Goodluck and have fun!!</h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </li>
+         </div>
+
+        </ul>
+    </nav>
+</header>
+<body>
+    <div class="container position-relative" id="gameScreen">
+                <div><img id="clouds" src="gifs/clouds.gif" style="width: 100%;height: auto;"></div>
+                <div class="d-flex justify-content-center">
+                    <input id="play-button" type="image" src="gifs/play-button.png">
+                    <h1 id="mode-alert">Please Select a Mode!</h1>
+                    <h1 id="easyMode"></h1>
+                    <h1 id="mediumMode"></h1>
+                    <h1 id="hardMode"></h1>
+                </div>
+                <div><img class="bird" id="bird1" src="gifs/flying-birds.gif" alt="flying Birds"></div>
+                <div><img class="bird" id="bird2" src="gifs/flying-birds.gif" alt="flying Birds"></div>
+                <div><img class="bird" id="bird3" src="gifs/flying-birds.gif" alt="flying Birds"></div>
+                <div><img class="bird" id="bird4" src="gifs/flying-birds.gif" alt="flying Birds"></div>
+                <div><img class="bird" id="bird5" src="gifs/flying-birds.gif" alt="flying Birds"></div>
+    </div>
+    <div class="container d-flex justify-content-between p-1" id="gameMode">
+        <p><img src="gifs/mode.png" style="width: 60%;"></p>
+        <label>
+        <input class="difficulty" id="easy" name="modes" type="radio">
+        <img src="gifs/easy.png" style="width: 60%;"">
+        </label>
+        <label>
+        <input class="difficulty" id="medium" name="modes" type="radio" ">
+        <img src="gifs/medium.png" style="width: 60%;">
+        </label>
+        <label>
+        <input class="difficulty" id="hard" name="modes" type="radio">
+        <img src="gifs/hard.png" style="width: 60%;">
+        </label>  
+    </div>
+    <div class="container" id="keyboardBorder">
+    <div class="container text-center text-wrap" id="keyboard">
+        <!-- <div class="row justify-content-center">
+            
+            <div class="col-1">
+                <button class="keyboardButtons">A</button>
+            </div>
+            <div class="col-1">
+                <button class="keyboardButtons">B</button>
+            </div>
+            <div class="col-1">
+                <button class="keyboardButtons">C</button>
+            </div>
+            <div class="col-1">
+                <button class="keyboardButtons">D</button>
+            </div>
+            <div class="col-1">
+                <button class="keyboardButtons">E</button>
+            </div>
+            <div class="col-1">
+                <button class="keyboardButtons">F</button>
+            </div>
+            <div class="col-1">
+                <button class="keyboardButtons">G</button>
+            </div>
+            <div class="col-1">
+                <button class="keyboardButtons">H</button>
+            </div>
+            <div class="col-1">
+                <button class="keyboardButtons">I</button>
+            </div>
+            <div class="col-1">
+                <button class="keyboardButtons">J</button>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-1">
+                <button class="keyboardButtons">K</button>
+            </div>
+            <div class="col-1">
+                <button class="keyboardButtons">L</button>
+            </div>
+            <div class="col-1">
+                <button class="keyboardButtons">M</button>
+            </div>
+            <div class="col-1">
+                <button class="keyboardButtons">N</button>
+            </div>
+            <div class="col-1">
+                <button class="keyboardButtons">O</button>
+            </div>
+            <div class="col-1">
+                <button class="keyboardButtons">P</button>
+            </div>
+            <div class="col-1">
+                <button class="keyboardButtons">Q</button>
+            </div>
+            <div class="col-1">
+                <button class="keyboardButtons">R</button>
+            </div>
+            <div class="col-1">
+                <button class="keyboardButtons">S</button>
+            </div>
+            <div class="col-1">
+                <button class="keyboardButtons">T</button>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-1">
+                <button class="keyboardButtons">U</button>
+            </div>
+            <div class="col-1">
+                <button class="keyboardButtons">V</button>
+            </div>
+            <div class="col-1">
+                <button class="keyboardButtons">W</button>
+            </div>
+            <div class="col-1">
+                <button class="keyboardButtons">X</button>
+            </div>
+            <div class="col-1">
+                <button class="keyboardButtons">Y</button>
+            </div>
+            <div class="col-1">
+                <button class="keyboardButtons">Z</button>
+            </div>
+        </div> -->
+
+    </div>
+    </div>
+    <div class="container">
+        <button id="shoot">shoot bird</button>
+    </div>
+    
+   
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+<script src="app.js"></script>
+</html>
