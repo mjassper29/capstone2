@@ -1,25 +1,25 @@
 var wordsForEasyMode = [
-	"javascript",
-	"html",
-	"python ",
-	"json",
-	"java",
-	"html",
-	"css",
-	"c",
-	"csharp",
-	"php",
-	"sql",
-	"ruby  "
+	"JAVASCRIPT",
+	"HTML",
+	"PYTHON",
+	"JSON",
+	"JAVA",
+	"HTML",
+	"CSS",
+	"C",
+	"CSHARP",
+	"PHP",
+	"SQL",
+	"RUBY"
 ]
-// var wordsForMediumMode = [
-//     "Frontend Developer",
-//     "Backend Developer",
-//     "Full Stack Engineer",
-//     "Software Engineer",
-//     "Web Developer",
-//     "Codex Academy",
-// ]
+var wordsForMediumMode = [
+    "Frontend Developer",
+    "Backend Developer",
+    "Full Stack Engineer",
+    "Software Engineer",
+    "Web Developer",
+    "Codex Academy",
+]
 // var wordsForHardMode = [
 
 // ]
@@ -63,47 +63,84 @@ function generateButtons() {
 }
                       // Functions for Easy Mode
 
- function randomWordForEasy() {
+ function randomWord() {
     answer = wordsForEasyMode[Math.floor(Math.random() * wordsForEasyMode.length)];
   }
 
-
- function handleGuess(chosenLetter) {
+  function handleGuess(chosenLetter) {
     guessed.indexOf(chosenLetter) === -1 ? guessed.push(chosenLetter) : null;
     document.getElementById(chosenLetter).setAttribute('disabled', true);
-    alert(answer)
     if (answer.indexOf(chosenLetter) >= 0) {
-      wordToGuessInEasyMode();
-      IfGameWon();
-
+      guessedWord();
+      ifGameWon();
     } else if (answer.indexOf(chosenLetter) === -1) {
-      mistake++
-      IfGameLost();
+      mistake++;
+      birdsDecreases();
+      ifGameLost();
+      
+    }
   }
+
+function birdsDecreases() {
+    if (mistake === 1) {
+        $('#bird1').animate({
+            top: '300px',
+            opacity: '0',
+        },1000)
+    }
+    else if (mistake === 2) {
+      $('#bird2').animate({
+        top: '600px',
+        opacity: '0',
+    },1000)
+    }
+    else if (mistake === 3) {
+      $('#bird3').animate({
+        top: '400px',
+        opacity: '0',
+    },1000)
+    }
+    else if (mistake === 4) {
+      $('#bird4').animate({
+        top: '600px',
+        opacity: '0',
+    },1000)
+    }
+    else if (mistake === 5) {
+      $('#bird5').animate({
+        top: '400px',
+        opacity: '0',
+    },1000)
+    }
 }
-function IfGameWon() {
+
+
+function ifGameWon() {
   if (wordStatus === answer) {
-    document.getElementById('keyboard').innerHTML = 'You Won!!!';
+    document.getElementById('easyMode').innerHTML = 'YOU WON!!!';
   }
 }
 
-function IfGameLost() {
+function ifGameLost() {
   if (mistake === 5) {
     document.getElementById('easyMode').innerHTML = 'The answer was: ' + answer;
-    document.getElementById('keyboard').innerHTML = 'You Lost!!!';
+    document.getElementById('mode-alert').innerHTML = 'YOU LOST!!!';
+    document.getElementsByClassName('btn').setAttribute('disabled', true);
   }
 }
 
-function wordToGuessInEasyMode() {
-    wordStatus = answer.split('').map(letter => (guessed.indexOf(letter) >= 0 ? letter : " _ ")).join('');
-    document.getElementById('easyMode').innerHTML = wordStatus;
+function guessedWord() {
+        wordStatus = answer.split('').map(letter => (guessed.indexOf(letter) >= 0 ? letter : " _ ")).join('');
+        document.getElementById('easyMode').innerHTML = wordStatus;
+
+      if (indexOf(wordsForEasyMode) === ' ') {
+
+      }
   }
 
-  generateButtons();
 
-  randomWordForEasy();
-  wordToGuessInEasyMode();
-
+  
+  generateButtons()
 
 
                       // Functions for Medium Mode
@@ -137,8 +174,6 @@ function wordToGuessInEasyMode() {
 
 
 
-
-
 $('#play-button').click(function(){
      if ($('#easy:input:radio').is(':checked')) 
       {
@@ -148,6 +183,8 @@ $('#play-button').click(function(){
         $('#easyMode').css("visibility","visible")
      if ($('#mode-alert').css("visibility") === 'visible') {
             $('#mode-alert').css("visibility","hidden");
+            randomWord();
+            guessedWord();
      }       
       }
     else if ($('#medium:input:radio').is(':checked'))
